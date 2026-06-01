@@ -1,248 +1,126 @@
 /* RESET BASICO */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* FONDO GENERAL */
-
-body{
-    background: linear-gradient(
-        180deg,
-        #0A3D8F 0%,
-        #0E5CB8 50%,
-        #1282D6 100%
-    );
-
-    min-height:100vh;
-    color:white;
-    transition: opacity 0.4s ease;
-}
-
-/* ANIMACION AL CARGAR PAGINA */
-
-.fade{
-    animation: aparecer 0.7s ease;
-}
-
-@keyframes aparecer{
-    from{
-        opacity:0;
-        transform: translateY(15px);
-    }
-
-    to{
-        opacity:1;
-        transform: translateY(0);
-    }
-}
-
+/* ========================= */
 /* HEADER */
+/* ========================= */
 
 header{
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:15px 40px;
 
-    background:#062B5B;
+    background:#031B3A;
 
-    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+    border-bottom:2px solid #27D9FF;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.25);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
+/* ========================= */
 /* LOGO */
+/* ========================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+}
 
 .logo img{
-    width:150px;
+    width:180px;
+    height:auto;
+    display:block;
+
+    filter:
+        drop-shadow(0 0 3px rgba(255,255,255,0.3))
+        drop-shadow(0 0 8px rgba(39,217,255,0.2));
 }
 
+/* ========================= */
 /* TITULO */
+/* ========================= */
 
 .titulo{
     flex:1;
-    text-align:center;
+
+    margin-left:25px;
 
     color:#27D9FF;
 
-    font-size:26px;
+    font-size:32px;
     font-weight:bold;
 
     text-shadow:
-        0 0 6px rgba(39,217,255,0.5);
+        0 0 6px rgba(39,217,255,0.4);
 }
 
+/* ========================= */
 /* MENU */
+/* ========================= */
 
 .menu ul{
     list-style:none;
     display:flex;
+    align-items:center;
+    gap:20px;
 }
 
 .menu li{
-    margin-left:25px;
+    margin:0;
 }
 
 .menu a{
     text-decoration:none;
     color:white;
+
     font-size:18px;
+
     padding:10px 20px;
+
     border-radius:25px;
-    transition:0.3s;
+
+    transition:all 0.3s ease;
 }
 
 .menu a:hover{
     background:#27D9FF;
-    color:#062B5B;
+
+    color:#031B3A;
+
+    transform:translateY(-2px);
 
     box-shadow:
-        0 0 8px rgba(39,217,255,0.6);
-
-    transform:scale(1.05);
+        0 0 10px rgba(39,217,255,0.4);
 }
 
-/* TEXTO */
-
-.texto{
-    text-align:center;
-    margin:40px auto;
-    padding:30px;
-
-    max-width:900px;
-
-    background:rgba(255,255,255,0.08);
-
-    border-radius:15px;
-
-    backdrop-filter:blur(6px);
-}
-
-.texto h2{
-    color:#27D9FF;
-    margin-bottom:15px;
-    font-size:40px;
-}
-
-.texto p{
-    max-width:800px;
-    margin:auto;
-    font-size:18px;
-    line-height:1.8;
-}
-
-/* CONTENEDOR VIDEO + IMAGEN */
-
-.media-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:60px;
-    margin-top:60px;
-    padding:20px;
-}
-
-/* VIDEO */
-
-.video-container,
-.imagen-container{
-    flex:0 0 350px;
-}
-
-.video-container video{
-    width:100%;
-    max-width:330px;
-    height:auto;
-    display:block;
-
-    border:3px solid #27D9FF;
-    border-radius:12px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.25);
-}
-
-/* IMAGEN */
-
-.imagen-container img{
-    width:100%;
-    max-width:350px;
-
-    border:3px solid #27D9FF;
-    border-radius:12px;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.25);
-}
-
-/* EFECTO HOVER */
-
-.video-container video:hover,
-.imagen-container img:hover{
-    transform:scale(1.03);
-    transition:0.3s ease;
-
-    box-shadow:
-        0 0 15px rgba(39,217,255,0.5);
-}
-
-/* VERSION PARA CELULAR */
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
 
 @media (max-width:768px){
 
     header{
         flex-direction:column;
+        gap:15px;
         text-align:center;
         padding:20px;
     }
 
+    .logo img{
+        width:140px;
+    }
+
     .titulo{
-        margin:10px 0;
-        font-size:22px;
+        margin-left:0;
+        font-size:28px;
     }
 
     .menu ul{
         flex-direction:column;
-        align-items:center;
-    }
-
-    .menu li{
-        margin:10px 0;
-    }
-
-    .media-container{
-        flex-direction:column;
-        gap:30px;
-        margin-top:40px;
-    }
-
-    .video-container,
-    .imagen-container{
-        flex:initial;
-        width:100%;
-        max-width:90%;
-    }
-
-    .video-container video{
-        width:100%;
-        max-width:100%;
-    }
-
-    .imagen-container img{
-        max-width:100%;
-    }
-
-    .texto{
-        margin:20px;
-        padding:20px;
-    }
-
-    .texto h2{
-        font-size:32px;
-    }
-
-    .texto p{
-        font-size:16px;
+        gap:10px;
     }
 }
